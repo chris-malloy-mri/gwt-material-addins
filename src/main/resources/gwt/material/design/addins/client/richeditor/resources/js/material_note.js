@@ -4833,6 +4833,10 @@
                 var closeTag = code.indexOf('>');
                 var chunk;
 
+                if (openTag < 0) {
+                    return code;
+                }
+
                 if (openTag === 0) {
                     //first thing is a tag
                     chunk = code.substring(0, closeTag + 1);

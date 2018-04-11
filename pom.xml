@@ -5,7 +5,7 @@
     <parent>
         <artifactId>gwt-material-parent</artifactId>
         <groupId>com.github.gwtmaterialdesign</groupId>
-        <version>2.0.1</version>
+        <version>2.0.1-MR</version>
     </parent>
 
     <artifactId>gwt-material-addins</artifactId>
@@ -33,16 +33,16 @@
     </licenses>
 
     <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <name>Sonatype Nexus snapshot repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Sonatype Nexus release repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>ci</id>
+            <name>ci-releases</name>
+            <url>http://192.168.1.100/m2/libs-release-local</url>
         </repository>
+        <snapshotRepository>
+            <id>ci</id>
+            <name>ci-snapshots</name>
+            <url>http://192.168.1.100/m2/libs-snapshot-local</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <dependencies>

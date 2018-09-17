@@ -19,6 +19,7 @@
  */
 package gwt.material.design.addins.client.autocomplete;
 
+import com.google.gwt.aria.client.Roles;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.event.logical.shared.*;
@@ -175,6 +176,7 @@ public class MaterialAutoComplete extends AbstractValueWidget<List<? extends Sug
     private String selectedChipStyle = "blue white-text";
     private Map<Suggestion, Widget> suggestionMap = new LinkedHashMap<>();
     private Label label = new Label();
+    private String aria;
     private List<ListItem> itemsHighlighted = new ArrayList<>();
     private FlowPanel panel = new FlowPanel();
     private UnorderedList list = new UnorderedList();
@@ -576,6 +578,9 @@ public class MaterialAutoComplete extends AbstractValueWidget<List<? extends Sug
 
     @Override
     public void setPlaceholder(String placeholder) {
+        if (aria == null) {
+            this.setAria(placeholder);
+        }
         itemBox.getElement().setAttribute("placeholder", placeholder);
     }
 
@@ -584,6 +589,9 @@ public class MaterialAutoComplete extends AbstractValueWidget<List<? extends Sug
      * @see gwt.material.design.client.ui.MaterialValueBox#setLabel(String)
      */
     public void setLabel(String label) {
+        if (aria == null) {
+            this.setAria(label);
+        }
         this.label.setText(label);
         if (!getPlaceholder().isEmpty()) {
             this.label.setStyleName(CssName.ACTIVE);
@@ -697,6 +705,15 @@ public class MaterialAutoComplete extends AbstractValueWidget<List<? extends Sug
     @Override
     public void setFieldWidth(double percentWidth) {
         getFieldTypeMixin().setFieldWidth(percentWidth);
+    }
+
+    public void setAria(String aria) {
+        this.aria = aria;
+        Roles.getSearchRole().setAriaLabelProperty(getElement(), aria);
+    }
+
+    public String getAria() {
+        return aria;
     }
 
     /**

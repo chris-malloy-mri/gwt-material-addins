@@ -16,6 +16,7 @@
 
     <properties>
         <gwt-material.version>2.1.1</gwt-material.version>
+        <gwt-material.version.mri>2.1.1-MRI-SNAPSHOT</gwt-material.version.mri>
     </properties>
 
     <scm>
@@ -50,7 +51,7 @@
         <dependency>
             <groupId>com.github.gwtmaterialdesign</groupId>
             <artifactId>gwt-material</artifactId>
-            <version>${gwt-material.version}</version>
+            <version>${gwt-material.version.mri}</version>
         </dependency>
 
         <!-- GwtMaterial Test Jar -->

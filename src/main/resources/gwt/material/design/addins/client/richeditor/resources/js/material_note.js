@@ -4875,7 +4875,12 @@
                     }
                     insideLastBlock = false;
                 }
-                chunk = new Array(level + 1).join('    ') + chunk.trim();
+                try {
+                    chunk = new Array(level + 1).join('    ') + chunk.trim();
+                } catch (e) {
+                    // Invalid HTML, just stop
+                    return chunk;
+                }
 
                 if (code.length === 0) {
                     return chunk;
